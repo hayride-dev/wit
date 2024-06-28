@@ -1,0 +1,6 @@
+package hayride-dev:http@0.0.1;
+
+world client {
+    import wasi:http/outgoing-handler@0.2.0;
+}
+  

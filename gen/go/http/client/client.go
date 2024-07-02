@@ -4444,3 +4444,25 @@ func WasiHttp0_2_0_OutgoingHandlerHandle(request WasiHttp0_2_0_OutgoingHandlerOu
   return lift_ret
 }
 
+// Export functions from wasi:cli/run@0.2.0
+var exports_wasi_cli0_2_0_run ExportsWasiCli0_2_0_Run = nil
+// `SetExportsWasiCli0_2_0_Run` sets the `ExportsWasiCli0_2_0_Run` interface implementation.
+// This function will need to be called by the init() function from the guest application.
+// It is expected to pass a guest implementation of the `ExportsWasiCli0_2_0_Run` interface.
+func SetExportsWasiCli0_2_0_Run(i ExportsWasiCli0_2_0_Run) {
+  exports_wasi_cli0_2_0_run = i
+}
+type ExportsWasiCli0_2_0_Run interface {
+  Run() Result[struct{}, struct{}] 
+}
+//export exports_wasi_cli_run_run
+func exportsWasiCli020RunRun(ret *C.exports_wasi_cli_run_result_void_void_t) {
+  result := exports_wasi_cli0_2_0_run.Run()
+  var lower_result C.exports_wasi_cli_run_result_void_void_t
+  lower_result.is_err = result.IsErr()
+  if result.IsOk() {
+  } else {
+  }
+  *ret = lower_result
+
+}

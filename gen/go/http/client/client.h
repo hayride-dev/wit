@@ -552,6 +552,10 @@ typedef struct {
   } val;
 } wasi_http_outgoing_handler_result_own_future_incoming_response_error_code_t;
 
+typedef struct {
+  bool is_err;
+} exports_wasi_cli_run_result_void_void_t;
+
 // Imported Functions from `wasi:io/poll@0.2.0`
 // Return the readiness of a pollable. This function never blocks.
 // 
@@ -1096,6 +1100,9 @@ extern void wasi_http_types_method_future_incoming_response_get(wasi_http_types_
 // through the `future-incoming-response`.
 extern void wasi_http_outgoing_handler_handle(wasi_http_outgoing_handler_own_outgoing_request_t request, wasi_http_outgoing_handler_option_own_request_options_t *options, wasi_http_outgoing_handler_result_own_future_incoming_response_error_code_t *ret);
 
+// Exported Functions from `wasi:cli/run@0.2.0`
+void exports_wasi_cli_run_run(exports_wasi_cli_run_result_void_void_t *ret);
+
 // Helper Functions
 
 extern void wasi_io_poll_pollable_drop_own(wasi_io_poll_own_pollable_t handle);
@@ -1251,6 +1258,8 @@ void wasi_http_outgoing_handler_error_code_free(wasi_http_outgoing_handler_error
 void wasi_http_outgoing_handler_option_own_request_options_free(wasi_http_outgoing_handler_option_own_request_options_t *ptr);
 
 void wasi_http_outgoing_handler_result_own_future_incoming_response_error_code_free(wasi_http_outgoing_handler_result_own_future_incoming_response_error_code_t *ptr);
+
+void exports_wasi_cli_run_result_void_void_free(exports_wasi_cli_run_result_void_void_t *ptr);
 
 // Transfers ownership of `s` into the string `ret`
 void client_string_set(client_string_t *ret, const char*s);

@@ -240,6 +240,9 @@ extern void __wasm_import_wasi_http_types_method_future_incoming_response_get(in
 __attribute__((__import_module__("wasi:http/outgoing-handler@0.2.0"), __import_name__("handle")))
 extern void __wasm_import_wasi_http_outgoing_handler_handle(int32_t, int32_t, int32_t, uint8_t *);
 
+// Exported Functions from `wasi:cli/run@0.2.0`
+
+
 // Canonical ABI intrinsics
 
 __attribute__((__weak__, __export_name__("cabi_realloc")))
@@ -781,6 +784,11 @@ void wasi_http_outgoing_handler_result_own_future_incoming_response_error_code_f
   if (!ptr->is_err) {
   } else {
     wasi_http_outgoing_handler_error_code_free(&ptr->val.err);
+  }
+}
+
+void exports_wasi_cli_run_result_void_void_free(exports_wasi_cli_run_result_void_void_t *ptr) {
+  if (!ptr->is_err) {
   }
 }
 
@@ -5207,6 +5215,19 @@ void wasi_http_outgoing_handler_handle(wasi_http_outgoing_handler_own_outgoing_r
     }
   }
   *ret = result;
+}
+
+__attribute__((__export_name__("wasi:cli/run@0.2.0#run")))
+int32_t __wasm_export_exports_wasi_cli_run_run(void) {
+  exports_wasi_cli_run_result_void_void_t ret;
+  exports_wasi_cli_run_run(&ret);
+  int32_t result;
+  if ((ret).is_err) {
+    result = 1;
+  } else {
+    result = 0;
+  }
+  return result;
 }
 
 // Ensure that the *_component_type.o object is linked in

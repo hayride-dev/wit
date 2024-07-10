@@ -1,4 +1,4 @@
-package client
+package platform
 
 // inspired from https://github.com/moznion/go-optional
 

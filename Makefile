@@ -6,4 +6,4 @@ default: gen-go
 
 gen-go: ; wit-bindgen-go generate --world platform --out ./gen/go/ ./wit
 
-clean: ; rm -rf ./gen/go/platform
+clean: ; rm -rf ./gen/go

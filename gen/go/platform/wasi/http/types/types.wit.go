@@ -10,10 +10,10 @@
 package types
 
 import (
-	monotonicclock "github.com/hayride-dev/wit/gen/platform/wasi/clocks/monotonic-clock"
-	ioerror "github.com/hayride-dev/wit/gen/platform/wasi/io/error"
-	"github.com/hayride-dev/wit/gen/platform/wasi/io/poll"
-	"github.com/hayride-dev/wit/gen/platform/wasi/io/streams"
+	monotonicclock "github.com/hayride-dev/wit/gen/go/platform/wasi/clocks/monotonic-clock"
+	ioerror "github.com/hayride-dev/wit/gen/go/platform/wasi/io/error"
+	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/poll"
+	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/streams"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 
@@ -855,7 +855,7 @@ func wasmimport_FieldsAppend(self0 uint32, name0 *uint8, name1 uint32, value0 *u
 
 // Clone represents the imported method "clone".
 //
-// Make a deep copy of the Fields. Equivelant in behavior to calling the
+// Make a deep copy of the Fields. Equivalent in behavior to calling the
 // `fields` constructor on the return value of `entries`. The resulting
 // `fields` is mutable.
 //
@@ -1216,7 +1216,7 @@ func wasmimport_OutgoingRequestBody(self0 uint32, result *cm.Result[OutgoingBody
 // `delete` operations will fail with `header-error.immutable`.
 //
 // This headers resource is a child: it must be dropped before the parent
-// `outgoing-request` is dropped, or its ownership is transfered to
+// `outgoing-request` is dropped, or its ownership is transferred to
 // another component by e.g. `outgoing-handler.handle`.
 //
 //	headers: func() -> headers
@@ -1750,7 +1750,7 @@ func wasmimport_IncomingBodyStream(self0 uint32, result *cm.Result[streams.Input
 
 // FutureTrailers represents the imported resource "wasi:http/types@0.2.0#future-trailers".
 //
-// Represents a future which may eventaully return trailers, or an error.
+// Represents a future which may eventually return trailers, or an error.
 //
 // In the case that the incoming HTTP Request or Response did not have any
 // trailers, this future will resolve to the empty set of trailers once the
@@ -1776,7 +1776,7 @@ func wasmimport_FutureTrailersResourceDrop(self0 uint32)
 
 // Get represents the imported method "get".
 //
-// Returns the contents of the trailers, or an error which occured,
+// Returns the contents of the trailers, or an error which occurred,
 // once the future is ready.
 //
 // The outer `option` represents future readiness. Users can wait on this
@@ -1788,7 +1788,7 @@ func wasmimport_FutureTrailersResourceDrop(self0 uint32)
 //
 // The inner `result` represents that either the HTTP Request or Response
 // body, as well as any trailers, were received successfully, or that an
-// error occured receiving them. The optional `trailers` indicates whether
+// error occurred receiving them. The optional `trailers` indicates whether
 // or not trailers were present in the body.
 //
 // When some `trailers` are returned by this method, the `trailers`
@@ -1812,7 +1812,7 @@ func wasmimport_FutureTrailersGet(self0 uint32, result *cm.Option[cm.Result[cm.R
 // Subscribe represents the imported method "subscribe".
 //
 // Returns a pollable which becomes ready when either the trailers have
-// been received, or an error has occured. When this pollable is ready,
+// been received, or an error has occurred. When this pollable is ready,
 // the `get` method will return `some`.
 //
 //	subscribe: func() -> pollable
@@ -1902,7 +1902,7 @@ func wasmimport_OutgoingResponseBody(self0 uint32, result *cm.Result[OutgoingBod
 // `delete` operations will fail with `header-error.immutable`.
 //
 // This headers resource is a child: it must be dropped before the parent
-// `outgoing-request` is dropped, or its ownership is transfered to
+// `outgoing-request` is dropped, or its ownership is transferred to
 // another component by e.g. `outgoing-handler.handle`.
 //
 //	headers: func() -> headers
@@ -1971,7 +1971,7 @@ func wasmimport_OutgoingResponseStatusCode(self0 uint32) (result0 uint32)
 //
 // If the user code drops this resource, as opposed to calling the static
 // method `finish`, the implementation should treat the body as incomplete,
-// and that an error has occured. The implementation should propogate this
+// and that an error has occurred. The implementation should propagate this
 // error to the HTTP protocol by whatever means it has available,
 // including: corrupting the body on the wire, aborting the associated
 // Request, or sending a late status code for the Response.
@@ -2048,7 +2048,7 @@ func wasmimport_OutgoingBodyWrite(self0 uint32, result *cm.Result[streams.Output
 
 // FutureIncomingResponse represents the imported resource "wasi:http/types@0.2.0#future-incoming-response".
 //
-// Represents a future which may eventaully return an incoming HTTP
+// Represents a future which may eventually return an incoming HTTP
 // Response, or an error.
 //
 // This resource is returned by the `wasi:http/outgoing-handler` interface to
@@ -2084,8 +2084,8 @@ func wasmimport_FutureIncomingResponseResourceDrop(self0 uint32)
 // is `some`, and error on subsequent calls.
 //
 // The inner `result` represents that either the incoming HTTP Response
-// status and headers have recieved successfully, or that an error
-// occured. Errors may also occur while consuming the response body,
+// status and headers have received successfully, or that an error
+// occurred. Errors may also occur while consuming the response body,
 // but those will be reported by the `incoming-body` and its
 // `output-stream` child.
 //
@@ -2105,7 +2105,7 @@ func wasmimport_FutureIncomingResponseGet(self0 uint32, result *cm.Option[cm.Res
 // Subscribe represents the imported method "subscribe".
 //
 // Returns a pollable which becomes ready when either the Response has
-// been received, or an error has occured. When this pollable is ready,
+// been received, or an error has occurred. When this pollable is ready,
 // the `get` method will return `some`.
 //
 //	subscribe: func() -> pollable

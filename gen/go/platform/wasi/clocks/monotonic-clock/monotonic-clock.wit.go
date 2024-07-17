@@ -12,12 +12,10 @@
 //
 // A monotonic clock is a clock which has an unspecified initial value, and
 // successive reads of the clock will produce non-decreasing values.
-//
-// It is intended for measuring elapsed time.
 package monotonicclock
 
 import (
-	"github.com/hayride-dev/wit/gen/platform/wasi/io/poll"
+	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/poll"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 
@@ -78,7 +76,7 @@ func wasmimport_Resolution() (result0 uint64)
 // SubscribeInstant represents the imported function "subscribe-instant".
 //
 // Create a `pollable` which will resolve once the specified instant
-// occured.
+// has occurred.
 //
 //	subscribe-instant: func(when: instant) -> pollable
 //
@@ -96,9 +94,8 @@ func wasmimport_SubscribeInstant(when0 uint64) (result0 uint32)
 
 // SubscribeDuration represents the imported function "subscribe-duration".
 //
-// Create a `pollable` which will resolve once the given duration has
-// elapsed, starting at the time at which this function was called.
-// occured.
+// Create a `pollable` that will resolve after the specified duration has
+// elapsed from the time this function is invoked.
 //
 //	subscribe-duration: func(when: duration) -> pollable
 //

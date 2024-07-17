@@ -5,7 +5,7 @@
 package types
 
 import (
-	monotonicclock "github.com/hayride-dev/wit/gen/platform/wasi/clocks/monotonic-clock"
+	monotonicclock "github.com/hayride-dev/wit/gen/go/platform/wasi/clocks/monotonic-clock"
 	"github.com/ydnar/wasm-tools-go/cm"
 	"unsafe"
 )

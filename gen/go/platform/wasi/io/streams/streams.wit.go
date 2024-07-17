@@ -12,8 +12,8 @@
 package streams
 
 import (
-	ioerror "github.com/hayride-dev/wit/gen/platform/wasi/io/error"
-	"github.com/hayride-dev/wit/gen/platform/wasi/io/poll"
+	ioerror "github.com/hayride-dev/wit/gen/go/platform/wasi/io/error"
+	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/poll"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 
@@ -221,6 +221,10 @@ func wasmimport_InputStreamSubscribe(self0 uint32) (result0 uint32)
 // accept data, the `subscribe` function to obtain a `pollable` which can be
 // polled for using `wasi:io/poll`.
 //
+// Dropping an `output-stream` while there's still an active write in
+// progress may result in the data being lost. Before dropping the stream,
+// be sure to fully flush your writes.
+//
 //	resource output-stream
 type OutputStream cm.Resource
 
@@ -413,7 +417,7 @@ func wasmimport_OutputStreamFlush(self0 uint32, result *cm.Result[StreamError, s
 //
 // Read from one stream and write to another.
 //
-// The behavior of splice is equivelant to:
+// The behavior of splice is equivalent to:
 // 1. calling `check-write` on the `output-stream`
 // 2. calling `read` on the `input-stream` with the smaller of the
 // `check-write` permitted length and the `len` provided to `splice`
@@ -443,7 +447,7 @@ func wasmimport_OutputStreamSplice(self0 uint32, src0 uint32, len0 uint64, resul
 // Subscribe represents the imported method "subscribe".
 //
 // Create a `pollable` which will resolve once the output-stream
-// is ready for more writing, or an error has occured. When this
+// is ready for more writing, or an error has occurred. When this
 // pollable is ready, `check-write` will return `ok(n)` with n>0, or an
 // error.
 //

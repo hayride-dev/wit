@@ -6,7 +6,7 @@
 package stdout
 
 import (
-	"github.com/hayride-dev/wit/gen/platform/wasi/io/streams"
+	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/streams"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 

@@ -6,7 +6,7 @@
 package preopens
 
 import (
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/filesystem/types"
+	"github.com/hayride-dev/wit/gen/go/wasi/filesystem/types"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 

@@ -6,7 +6,7 @@
 package stdin
 
 import (
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/streams"
+	"github.com/hayride-dev/wit/gen/go/wasi/io/streams"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 

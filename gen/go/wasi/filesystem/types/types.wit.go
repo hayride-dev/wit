@@ -31,9 +31,9 @@
 package types
 
 import (
-	wallclock "github.com/hayride-dev/wit/gen/go/platform/wasi/clocks/wall-clock"
-	ioerror "github.com/hayride-dev/wit/gen/go/platform/wasi/io/error"
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/streams"
+	wallclock "github.com/hayride-dev/wit/gen/go/wasi/clocks/wall-clock"
+	ioerror "github.com/hayride-dev/wit/gen/go/wasi/io/error"
+	"github.com/hayride-dev/wit/gen/go/wasi/io/streams"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 

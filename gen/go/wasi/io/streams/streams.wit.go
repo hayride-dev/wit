@@ -12,8 +12,8 @@
 package streams
 
 import (
-	ioerror "github.com/hayride-dev/wit/gen/go/platform/wasi/io/error"
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/poll"
+	ioerror "github.com/hayride-dev/wit/gen/go/wasi/io/error"
+	"github.com/hayride-dev/wit/gen/go/wasi/io/poll"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 

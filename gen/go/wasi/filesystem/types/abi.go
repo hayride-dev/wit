@@ -5,7 +5,7 @@
 package types
 
 import (
-	wallclock "github.com/hayride-dev/wit/gen/go/platform/wasi/clocks/wall-clock"
+	wallclock "github.com/hayride-dev/wit/gen/go/wasi/clocks/wall-clock"
 	"github.com/ydnar/wasm-tools-go/cm"
 	"unsafe"
 )

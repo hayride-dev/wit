@@ -9,7 +9,7 @@
 package outgoinghandler
 
 import (
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/http/types"
+	"github.com/hayride-dev/wit/gen/go/wasi/http/types"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 

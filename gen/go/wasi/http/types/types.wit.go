@@ -10,10 +10,10 @@
 package types
 
 import (
-	monotonicclock "github.com/hayride-dev/wit/gen/go/platform/wasi/clocks/monotonic-clock"
-	ioerror "github.com/hayride-dev/wit/gen/go/platform/wasi/io/error"
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/poll"
-	"github.com/hayride-dev/wit/gen/go/platform/wasi/io/streams"
+	monotonicclock "github.com/hayride-dev/wit/gen/go/wasi/clocks/monotonic-clock"
+	ioerror "github.com/hayride-dev/wit/gen/go/wasi/io/error"
+	"github.com/hayride-dev/wit/gen/go/wasi/io/poll"
+	"github.com/hayride-dev/wit/gen/go/wasi/io/streams"
 	"github.com/ydnar/wasm-tools-go/cm"
 )
 
